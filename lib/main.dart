@@ -101,15 +101,16 @@ class _MainAppState extends State<MainApp> {
 
   Widget blMessageButton(
       {required String message, required String buttonText}) {
+    // Bluetooth Connection is only available on Android
     if (!Platform.isAndroid) {
       return Container(
         decoration: BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: const Text('Bluetooth is not available on this device'),
+        child: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text('Bluetooth is not available on this device'),
         ),
       );
     }
