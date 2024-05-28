@@ -70,6 +70,10 @@ class BluetoothConnector {
   }
 
   void sendBlMessage(String message) async {
+    if (connection == null) {
+      debugPrint('No connection established');
+      return;
+    }
     final text = message.trim();
 
     if (text.isNotEmpty) {
