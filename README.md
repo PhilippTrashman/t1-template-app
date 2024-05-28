@@ -6,6 +6,7 @@ A template app for the T1 School Project.
 Wifi Support Tested:
 - Linux
 - Windows
+- Chrome
 
 Wifi Support Potentialy:
 - Android
