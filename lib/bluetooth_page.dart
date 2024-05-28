@@ -11,7 +11,7 @@ It will Crash on Chrome and not Work on any other platform
 */
 
 class BluetoothPage extends StatefulWidget {
-  const BluetoothPage({Key? key}) : super(key: key);
+  const BluetoothPage({super.key});
 
   @override
   State<BluetoothPage> createState() => _BluetoothPageState();
@@ -80,7 +80,13 @@ class _BluetoothPageState extends State<BluetoothPage> {
         ),
         child: const Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text('Bluetooth is not available on this device'),
+          child: Text(
+            'Bluetooth is not available on this device',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 24,
+            ),
+          ),
         ),
       );
     }
@@ -90,7 +96,13 @@ class _BluetoothPageState extends State<BluetoothPage> {
           bl!.sendBlMessage(message);
         }
       },
-      child: Text(buttonText),
+      child: Text(
+        buttonText,
+        style: const TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 24,
+        ),
+      ),
     );
   }
 
@@ -114,33 +126,59 @@ class _BluetoothPageState extends State<BluetoothPage> {
     return AlertDialog(
       title: const Text('Bluetooth Permission'),
       content: const Text(
-          'This app requires bluetooth permission to connect to the device, please allow location and nearby devices permission to continue.'),
+        'This app requires bluetooth permission to connect to the device, please allow location and nearby devices permission to continue.',
+        style: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 24,
+        ),
+      ),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Cancel'),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 24,
+            ),
+          ),
         ),
         TextButton(
           onPressed: () async {
             await openAppSettings().then((value) async {
               Navigator.of(context).pop();
               await Permission.bluetoothScan.status.then((value) {
-                debugPrint("-------!${value.isGranted}!-------");
                 if (value.isGranted) {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text(
-                          'Bluetooth permission granted, please try again.')));
+                    'Bluetooth permission granted, please try again.',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: 24,
+                    ),
+                  )));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text(
-                          'Bluetooth permission is required to connect to the device.')));
+                    'Bluetooth permission is required to connect to the device.',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: 24,
+                    ),
+                  )));
                 }
               });
             });
           },
-          child: const Text('Open Settings'),
+          child: const Text(
+            'Open Settings',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 24,
+            ),
+          ),
         ),
       ],
     );

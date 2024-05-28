@@ -1,5 +1,10 @@
 # T1 Template App
-A template app for the T1 School Project.  
+A template app for the T1 School Project.
+
+The Template provides some Widgets to make the development for the T1 app more accesible and easier  
+For more advanced Features please refer to the Flutter Documentation  
+
+If you're new to Flutter, here is [a handy tutorial](https://flutter.dev/docs/get-started/codelab)
 
 ## Usage
 

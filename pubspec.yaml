@@ -20,3 +20,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
+          style: bold
+        - asset: assets/fonts/roboto/Roboto-Italic.ttf
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf
+          style: bold_italic
