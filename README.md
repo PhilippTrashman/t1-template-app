@@ -24,4 +24,5 @@ Bluetooth Support:
 Bluetooth works over the Serial Interface of the ESP32, currently the only implementation works on Android.  
 BLE Support may come in the Future for multiple Systems
 
-
+If You want to use the Bluetooth Version and implement it in your own project, dont forget to adjust your AndroidManifest.xml according to the one in this Template.  
+If not done properly the App wont work on Android and you will only get an error. The easiest Way is to fork this Repo :)
