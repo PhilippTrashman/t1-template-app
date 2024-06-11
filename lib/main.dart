@@ -25,19 +25,18 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  final Color colorSeed = Colors.indigo;
-
   @override
   Widget build(BuildContext context) {
     final ThemeData darkTheme = ThemeData(
-      colorSchemeSeed: colorSeed,
+      primarySwatch: Colors.indigo,
       brightness: Brightness
           .dark, // change this value if you want to implement light theme
     );
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: darkTheme,
-      // home: const WifiPage(),
-      home: const BluetoothPage(),
+      home: const WifiPage(),
+      // home: const BluetoothPage(),
     );
   }
 }

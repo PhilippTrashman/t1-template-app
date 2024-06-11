@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_joystick/flutter_joystick.dart';
 import 'package:t1_template/widget/steering_wheel.dart';
 import './wifi_connection/http_service.dart';
+import './widget/joystick.dart';
 
 class WifiPage extends StatefulWidget {
   const WifiPage({super.key});
@@ -28,8 +30,12 @@ class _WifiPageState extends State<WifiPage> {
     );
   }
 
-  Future<void> sendMessage(int message) async {
+  Future<void> sendSteeringMessage(int message) async {
     await httpService.post('steering?angle=$message');
+  }
+
+  Future<void> sendJoystickMessage(int x, int y) async {
+    await httpService.post('joystick?x=$x&y=$y');
   }
 
   @override
@@ -44,7 +50,16 @@ class _WifiPageState extends State<WifiPage> {
           children: <Widget>[
             const Spacer(),
             wifiMessageButton(route: 'hello', buttonText: 'Send Hello'),
-            Expanded(child: SteeringWheel(sendMessage: sendMessage)),
+            Expanded(
+                child: Row(
+              children: [
+                Expanded(
+                    child: SteeringWheel(sendMessage: sendSteeringMessage)),
+                Expanded(
+                  child: JoystickWidget(sendMessage: sendJoystickMessage),
+                )
+              ],
+            )),
             const Spacer(),
           ],
         ),

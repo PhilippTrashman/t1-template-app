@@ -12,6 +12,7 @@ dependencies:
   flutter_bluetooth_serial: ^0.4.0
   dio: ^5.4.3+1
   permission_handler: ^11.3.1
+  flutter_joystick: ^0.0.4
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +24,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
-    
+
   fonts:
     - family: Roboto
       fonts:
