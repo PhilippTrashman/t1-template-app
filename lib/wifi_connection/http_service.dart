@@ -9,7 +9,12 @@ class HttpService {
   }
 
   Future<Response> post(String url) async {
-    return await _dio.post(espUrl + url);
+    try {
+      return await _dio.post(espUrl + url);
+    } catch (e) {
+      print(e);
+      return Response(requestOptions: RequestOptions(path: 'error'));
+    }
   }
 
   Future<Response> handleHelloRequest() async {

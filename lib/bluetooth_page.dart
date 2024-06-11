@@ -4,6 +4,7 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:permission_handler/permission_handler.dart';
 import './bluetooth_serial/select_bonded_device_page.dart';
 import './bluetooth_serial/bluetooth_class.dart';
+import './widget/steering_wheel.dart';
 
 /*
 This Page is Only Available on Android
@@ -45,6 +46,11 @@ class _BluetoothPageState extends State<BluetoothPage> {
               message: 'Hello from Bluetooth',
               buttonText: 'Send Bluetooth Message',
             ),
+            Expanded(child: SteeringWheel(sendMessage: (int degrees) {
+              if (bl != null) {
+                bl!.sendBlMessage('Steering Angle: $degrees');
+              }
+            })),
             const Spacer(),
           ],
         ),

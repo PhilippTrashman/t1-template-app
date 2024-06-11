@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'wifi_page.dart';
+import 'bluetooth_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -35,8 +36,8 @@ class _MainAppState extends State<MainApp> {
     );
     return MaterialApp(
       theme: darkTheme,
-      home: const WifiPage(),
-      // home: const BluetoothPage(),
+      // home: const WifiPage(),
+      home: const BluetoothPage(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t1_template/widget/steering_wheel.dart';
 import './wifi_connection/http_service.dart';
 
 class WifiPage extends StatefulWidget {
@@ -27,6 +28,10 @@ class _WifiPageState extends State<WifiPage> {
     );
   }
 
+  Future<void> sendMessage(int message) async {
+    await httpService.post('steering?angle=$message');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +44,7 @@ class _WifiPageState extends State<WifiPage> {
           children: <Widget>[
             const Spacer(),
             wifiMessageButton(route: 'hello', buttonText: 'Send Hello'),
+            Expanded(child: SteeringWheel(sendMessage: sendMessage)),
             const Spacer(),
           ],
         ),
